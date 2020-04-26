@@ -22,25 +22,27 @@ namespace WinFormOverlay
             }
         }
 
-        private void SaveButton_Click(object sender, EventArgs e)
+        private async void SaveButton_Click(object sender, EventArgs e)
         {
-            LoadingForm.Start(this);
-            //try
-            //{
-            //    LoadingForm.Start(this);
-            //    SqlConnection _Connection = new SqlConnection("Server=167.86.104.233;Database=Paiements;User Id=sa;Password=myPassword;");
-            //    await _Connection.OpenAsync();
-            //    LoadingForm.Stop();
-            //    if (_Connection.State == ConnectionState.Open)
-            //    {
-            //        Debug.WriteLine("Opened");
-            //    }
-            //}
-            //catch (Exception _Ex)
-            //{
-            //    LoadingForm.Stop();
-            //    Debug.WriteLine(_Ex.Message);
-            //}
+            try
+            {
+                SaveButton.Enabled = false;
+                LoadingForm.Start(this);
+                SqlConnection _Connection = new SqlConnection("Server=187.86.104.233;Database=Paiements;User Id=sa;Password=myPassword;");
+                await _Connection.OpenAsync();
+                LoadingForm.Stop();
+                if (_Connection.State == ConnectionState.Open)
+                {
+                    Debug.WriteLine("Opened");
+                }
+                SaveButton.Enabled = true;
+            }
+            catch (Exception _Ex)
+            {
+                SaveButton.Enabled = false;
+                LoadingForm.Stop();
+                Debug.WriteLine(_Ex.Message);
+            }
         }
     }
 }
