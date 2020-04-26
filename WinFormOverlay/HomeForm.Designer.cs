@@ -28,19 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.SaveButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // SaveButton
+            // 
+            this.SaveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.SaveButton.Location = new System.Drawing.Point(526, 457);
+            this.SaveButton.Name = "SaveButton";
+            this.SaveButton.Size = new System.Drawing.Size(86, 32);
+            this.SaveButton.TabIndex = 0;
+            this.SaveButton.Text = "Save";
+            this.SaveButton.UseVisualStyleBackColor = true;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(624, 501);
+            this.Controls.Add(this.SaveButton);
             this.Name = "HomeForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HomeForm";
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Button SaveButton;
     }
 }
