@@ -37,7 +37,7 @@
             // 
             this.LoadingContainer.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LoadingContainer.Controls.Add(this.LoadingBar);
-            this.LoadingContainer.Location = new System.Drawing.Point(12, 12);
+            this.LoadingContainer.Location = new System.Drawing.Point(10, 10);
             this.LoadingContainer.Name = "LoadingContainer";
             this.LoadingContainer.Size = new System.Drawing.Size(200, 100);
             this.LoadingContainer.TabIndex = 0;
@@ -56,7 +56,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(224, 125);
+            this.ClientSize = new System.Drawing.Size(220, 120);
             this.ControlBox = false;
             this.Controls.Add(this.LoadingContainer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -64,7 +64,6 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "LoadingForm";
             this.UseWaitCursor = true;
             this.LoadingContainer.ResumeLayout(false);
             this.ResumeLayout(false);
