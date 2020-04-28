@@ -36,6 +36,7 @@
             // LoadingContainer
             // 
             this.LoadingContainer.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.LoadingContainer.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.LoadingContainer.Controls.Add(this.LoadingBar);
             this.LoadingContainer.Location = new System.Drawing.Point(10, 10);
             this.LoadingContainer.Name = "LoadingContainer";
@@ -57,6 +58,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(220, 120);
             this.ControlBox = false;
             this.Controls.Add(this.LoadingContainer);

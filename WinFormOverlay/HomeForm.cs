@@ -39,7 +39,7 @@ namespace WinFormOverlay
             }
             catch (Exception _Ex)
             {
-                SaveButton.Enabled = false;
+                SaveButton.Enabled = true;
                 LoadingForm.Stop();
                 Debug.WriteLine(_Ex.Message);
             }

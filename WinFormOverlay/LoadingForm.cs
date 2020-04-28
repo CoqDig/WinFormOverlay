@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace WinFormOverlay
@@ -11,20 +13,27 @@ namespace WinFormOverlay
         {
             
             InitializeComponent();
-
-            ControlBox = false;
-            FormBorderStyle = FormBorderStyle.FixedToolWindow;
-            Text = string.Empty;
+            SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             Owner = _Parent;
-
-            Left = _Parent.Left + (_Parent.Width - Width) / 2;
-            Top = _Parent.Top + (_Parent.Height - Height) / 2;
+            //Opacity = 0.8;
+            BackColor = Color.Transparent;
+            TransparencyKey = Color.Transparent;
+            //BackColor = Color.FromArgb(25, Color.Black);
 
             _Parent.LocationChanged += (_Sender, _Event) =>
             {
                 BringToFront();
-                Left = _Parent.Left + (_Parent.Width - Width) / 2;
-                Top = _Parent.Top + (_Parent.Height - Height) / 2;
+                if (Owner != null)
+                {
+                    Rectangle _Rectangle = Owner.RectangleToScreen(Owner.ClientRectangle);
+                    int _Height = _Rectangle.Top - Owner.Top;
+
+                    Width = Owner.Width - 16;
+                    Height = Owner.Height - _Height - 7;
+
+                    Left = Owner.Left + 8;
+                    Top = Owner.Top + _Height;
+                }
             };
         }
 
@@ -32,8 +41,14 @@ namespace WinFormOverlay
         {
             if(Owner != null)
             {
-                Left = Owner.Left + (Owner.Width - Width) / 2;
-                Top = Owner.Top + (Owner.Height - Height) / 2;
+                Rectangle _Rectangle = Owner.RectangleToScreen(Owner.ClientRectangle);
+                int _Height = _Rectangle.Top - Owner.Top;
+
+                Width = Owner.Width - 16;
+                Height = Owner.Height - _Height - 7;
+               
+                Left = Owner.Left + 8;
+                Top = Owner.Top + _Height;
             }
             base.OnShown(e);
         }
@@ -41,7 +56,7 @@ namespace WinFormOverlay
         public static void Start(Form _Parent)
         {
             Current = new LoadingForm(_Parent);
-            Current.Show();
+            Current.Show(_Parent);
         }
 
         public static void Stop()
