@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -16,9 +15,6 @@ namespace WinFormOverlay
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             Owner = _Parent;
             Opacity = 0.8;
-            //BackColor = Color.LimeGreen;
-            //TransparencyKey = Color.LimeGreen;
-            //BackColor = Color.FromArgb(25, Color.Black);
 
             _Parent.LocationChanged += (_Sender, _Event) =>
             {
@@ -57,6 +53,12 @@ namespace WinFormOverlay
         {
             Current = new LoadingForm(_Parent);
             Current.Show(_Parent);
+        }
+
+        public static void SetTitle(string _Title)
+        {
+            if (Current != null)
+                Current.TitleLabel.Text = _Title;
         }
 
         public static void Stop()
