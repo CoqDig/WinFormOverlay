@@ -30,6 +30,7 @@
         {
             this.LoadingContainer = new System.Windows.Forms.Panel();
             this.LoadingBar = new System.Windows.Forms.ProgressBar();
+            this.TitleLabel = new System.Windows.Forms.Label();
             this.LoadingContainer.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -37,6 +38,7 @@
             // 
             this.LoadingContainer.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LoadingContainer.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.LoadingContainer.Controls.Add(this.TitleLabel);
             this.LoadingContainer.Controls.Add(this.LoadingBar);
             this.LoadingContainer.Location = new System.Drawing.Point(10, 10);
             this.LoadingContainer.Name = "LoadingContainer";
@@ -52,6 +54,16 @@
             this.LoadingBar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.LoadingBar.TabIndex = 0;
             this.LoadingBar.UseWaitCursor = true;
+            // 
+            // TitleLabel
+            // 
+            this.TitleLabel.AutoSize = true;
+            this.TitleLabel.Location = new System.Drawing.Point(30, 14);
+            this.TitleLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.TitleLabel.Name = "TitleLabel";
+            this.TitleLabel.Size = new System.Drawing.Size(85, 17);
+            this.TitleLabel.TabIndex = 1;
+            this.TitleLabel.Text = "Chargement";
             // 
             // LoadingForm
             // 
@@ -69,6 +81,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.UseWaitCursor = true;
             this.LoadingContainer.ResumeLayout(false);
+            this.LoadingContainer.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -77,5 +90,6 @@
 
         private System.Windows.Forms.Panel LoadingContainer;
         private System.Windows.Forms.ProgressBar LoadingBar;
+        private System.Windows.Forms.Label TitleLabel;
     }
 }

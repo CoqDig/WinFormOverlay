@@ -26,7 +26,7 @@ namespace WinFormOverlay
         {
             try
             {
-                SaveButton.Enabled = false;
+                //SaveButton.Enabled = false;
                 LoadingForm.Start(this);
                 SqlConnection _Connection = new SqlConnection("Server=187.86.104.233;Database=Paiements;User Id=sa;Password=myPassword;");
                 await _Connection.OpenAsync();
@@ -35,11 +35,11 @@ namespace WinFormOverlay
                 {
                     Debug.WriteLine("Opened");
                 }
-                SaveButton.Enabled = true;
+                //SaveButton.Enabled = true;
             }
             catch (Exception _Ex)
             {
-                SaveButton.Enabled = true;
+                //SaveButton.Enabled = true;
                 LoadingForm.Stop();
                 Debug.WriteLine(_Ex.Message);
             }

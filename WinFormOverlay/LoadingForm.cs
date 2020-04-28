@@ -15,9 +15,9 @@ namespace WinFormOverlay
             InitializeComponent();
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             Owner = _Parent;
-            //Opacity = 0.8;
-            BackColor = Color.Transparent;
-            TransparencyKey = Color.Transparent;
+            Opacity = 0.8;
+            //BackColor = Color.LimeGreen;
+            //TransparencyKey = Color.LimeGreen;
             //BackColor = Color.FromArgb(25, Color.Black);
 
             _Parent.LocationChanged += (_Sender, _Event) =>
